@@ -1,0 +1,15 @@
+.product-card h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 5px 10px 9px #8a8787;
+    margin-top: 20px;
+}
+
+
+.product-card img {
+
+    transition: transform .5s ease-in;
+}
+
+.product-card:hover img {
+    transform: scale(1.15);   
+}
