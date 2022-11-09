@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import contact_img from '../../images/contact.png';
 import emailjs from '@emailjs/browser';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
+
 
 
 const Conatct = () => {
@@ -52,6 +54,13 @@ const Conatct = () => {
 
             </Container>
 
+            
+  <MessengerCustomerChat
+    pageId="104208581503659"
+    appId="1122430098459896"
+    
+  />,
+ 
 
 
 
