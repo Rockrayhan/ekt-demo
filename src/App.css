@@ -4,8 +4,21 @@
 
 }
 
+.header-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+}
 
-/* Works on Chrome, Edge, and Safari */
+.header-link:hover {
+  background-color: burlywood;
+  
+}
+                  
+
+/* =========== Scollbar CSS ========= */
+
 *::-webkit-scrollbar {
   width: 12px;
 }
