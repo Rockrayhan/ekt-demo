@@ -17,6 +17,7 @@ function App() {
         <Route path="home" element= {<Home />} />
         <Route path="about" element= {<About />} />
         <Route path="products" element= {<Products />} />
+        
         <Route path="Contact" element= {<Conatct />} />
         <Route path="*" element= {<NotFount />} />
 
