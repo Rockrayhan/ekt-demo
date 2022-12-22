@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -36,6 +37,10 @@ const Login = () => {
               type="submit"><i className="fab fa-google me-2"></i> Sign in with google</button>
            {/*  <button className="btn btn-lg btn-block btn-primary mb-2" style={{backgroundColor :'#3b5998'}}
               type="submit"><i className="fab fa-facebook-f me-2"></i>Sign in with facebook</button> */}
+
+              <h6 className='mt-3'>
+             <Link to='/signin'> New user ? Create an Account </Link>
+              </h6>
 
           </div>
         </div>
