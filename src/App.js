@@ -4,9 +4,10 @@ import About from './components/About/About';
 import Conatct from './components/Contact/Conatct';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
+import Signup from './components/Login/Signup';
 import NotFount from './components/NotFount/NotFount';
 import Products from './components/Products/Products';
-import Footer from './components/Shared/Footer/Footer';
+
 
 
 function App() {
@@ -18,9 +19,11 @@ function App() {
         <Route path="home" element= {<Home />} />
         <Route path="about" element= {<About />} />
         <Route path="products" element= {<Products />} />
-        <Route path="login" element= {<Login />} />
         <Route path="Contact" element= {<Conatct />} />
+        <Route path="login" element= {<Login />} />
+        <Route path="signup" element= {<Signup />} />
         <Route path="*" element= {<NotFount />} />
+
 
       </Routes>
      

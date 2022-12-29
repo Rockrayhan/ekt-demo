@@ -1,48 +1,55 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading/Loading';
 
+const Signup = () => {
 
-const Login = () => {
-  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
-  const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm();
+  
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
 
-  const [
-    signInWithEmailAndPassword,
-    user,
-    loading,
-    error,
-  ] = useSignInWithEmailAndPassword(auth);
-
-  let signInError ;
-
-  if (error || gError) {
-    signInError= <p> {error?.message || gError?.message}  </p>
-  }
-
-  if ( loading || gLoading ) {
-    return <Loading></Loading>;
-  }
-
-
-  if (user|| gUser) {
-    console.log(user|| gUser);
-  }
-
-
-  const onSubmit = data => {
-    console.log(data);
-    signInWithEmailAndPassword(data.email , data.password) ;
+      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     
+      const navigate = useNavigate() ;
+  
+    let signInError ;
+  
+    if (error || gError || updateError ) {
+      signInError= <p> {error?.message || gError?.message || updateError.message}  </p>
+    }
+  
+    if ( loading || gLoading || updating ) {
+      return <Loading></Loading>;
+    }
+  
+  
+    if (user|| gUser) {
+      console.log(user|| gUser);
+    }
+  
+  
+    const onSubmit = async data => {
+      await createUserWithEmailAndPassword(data.email , data.password) ;
+      await updateProfile({ displayName : data.name });
+      console.log('update done'); 
+      navigate('/products')
 
-  };
+    }
 
-  return (
-    <div>
+    return (
+        <div>
+            
+            <div>
       <section className="vh-100" style={{ backgroundColor: 'whitesmoke' }}>
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -50,9 +57,37 @@ const Login = () => {
               <div className="card shadow-2-strong" style={{ borderRadius: '1rem', backgroundColor: 'rgba(255, 228, 196, 0.651)' }} >
                 <div className="card-body p-5 text-center">
 
-                  <h3 className="mb-5">Log in with EKT</h3>
+                  <h3 className="mb-5">Sign UP with EKT</h3>
 
 <form onSubmit={handleSubmit(onSubmit)}>
+
+        {/* ======== name field ======= */}
+
+  <div className="form-outline mb-4">
+
+    <input type="text"
+    placeholder='Your Name'
+      className="form-control form-control-lg"
+      {...register("name", {
+        required: {
+          value: true,
+          message: 'Name is requiered'
+        }
+
+      })}
+    />
+
+    
+    <label className="label">
+
+      {errors.name?.type === 'required' && <p className='text-danger fw-bold'> {errors.name.message} </p>}
+      
+
+    </label>
+  </div>
+
+
+      {/* ======== Email field ======= */}
 
   <div className="form-outline mb-4">
 
@@ -81,6 +116,7 @@ const Login = () => {
     </label>
   </div>
 
+            {/* ======== Password field ======= */}
 
   <div className="form-outline mb-4">
 
@@ -112,7 +148,7 @@ const Login = () => {
 
 
      <small className='text-danger fw-bold'>  {signInError} </small>
-  <input className='btn btn-primary p-3 fs-5 fw-bold' type="submit" value='Login' />
+  <input className='btn btn-primary p-3 fs-5 fw-bold' type="submit" value='Sign up' />
 </form>
 
 
@@ -140,7 +176,7 @@ const Login = () => {
               type="submit"><i className="fab fa-facebook-f me-2"></i>Sign in with facebook</button> */}
 
                   <h6 className='mt-3'>
-                    <Link to='/signup'> New user ? Create an Account </Link>
+                    <Link to='/login'> Already registered ? Please Login </Link>
                   </h6>
 
                 </div>
@@ -150,7 +186,9 @@ const Login = () => {
         </div>
       </section>
     </div>
-  );
+            
+        </div>
+    );
 };
 
-export default Login;
+export default Signup;
