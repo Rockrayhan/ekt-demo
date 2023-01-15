@@ -23,7 +23,7 @@ const Header = () => {
           <Navbar.Brand to='/home'>  Ektu Khani Tech  </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mx-auto mt-3 mb-2">
+            <Nav className="mx-auto mt-4">
               <Nav.Link>  <NavLink className='header-link' to='/home'> Home  </NavLink> </Nav.Link>
 
               <Nav.Link> <NavLink className='header-link' to='/products'> Products  </NavLink>  </Nav.Link>

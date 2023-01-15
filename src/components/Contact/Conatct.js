@@ -27,10 +27,10 @@ const Conatct = () => {
 
     
     return (
-        <div>
-            <h4>
-                Don't forgate to contact us
-            </h4>
+        <div className='mt-5'>
+           <h1 className='header-font mb-5'>
+            Don't Forget To Contact us
+           </h1>
 
 
 
