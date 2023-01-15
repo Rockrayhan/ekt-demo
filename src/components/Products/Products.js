@@ -5,9 +5,11 @@ import Col from 'react-bootstrap/Col';
 import template1 from '../../images/web-template.jpg' ;
 import './Products.css' ;
 
+
 const Products = () => {
     return (
         <Container>
+            
         <Row>
           <Col sm={4}>
             <div className='product-card'>
@@ -41,7 +43,11 @@ const Products = () => {
 
           </Col>
         </Row>
+
+       
         </Container>
+
+        
     );
 };
 

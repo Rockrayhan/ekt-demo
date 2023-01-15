@@ -7,12 +7,16 @@ import Login from './components/Login/Login';
 import Signup from './components/Login/Signup';
 import NotFount from './components/NotFount/NotFount';
 import Products from './components/Products/Products';
+import Footer from './components/Shared/Footer/Footer';
+import Header from './components/Shared/Header/Header';
 
 
 
 function App() {
   return (
     <div className="App">
+
+      <Header></Header>
       
       <Routes>
         <Route path="/" element= {<Home />} />
@@ -26,6 +30,8 @@ function App() {
 
 
       </Routes>
+
+      <Footer></Footer>
      
     </div>
   );

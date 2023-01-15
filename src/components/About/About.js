@@ -1,11 +1,14 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import about_us from '../../images/about-us.png';
+
 import './About.css' ;
 
 const About = () => {
     return (
         <div>
+
+           
             <h1>
                 About US
             </h1>
@@ -33,6 +36,8 @@ const About = () => {
                     </Col>
                 </Row>
             </Container>
+
+            
 
         </div>
     );
