@@ -11,14 +11,14 @@ import auth from '../../../firebase.init';
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
-  
+
   const logout = () => {
     signOut(auth);
   };
 
   return (
     <header>
-      <Navbar collapseOnSelect expand="lg">
+      <Navbar className='nav-color' collapseOnSelect expand="lg">
         <Container>
           <Navbar.Brand to='/home'>  Ektu Khani Tech  </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -33,17 +33,17 @@ const Header = () => {
 
             </Nav>
             <Nav>
-              <Nav.Link href="">Call Now <br /> +880 1839-758926 </Nav.Link>
+              <Nav.Link href="https://wa.me/1682011307">Call Now <br /> +880 1682-011307 </Nav.Link>
 
             </Nav>
-            <Nav className='ms-5'>
+            {/* <Nav className='ms-5'>
               
                 
                {user ? <Button onClick={logout} variant="info">SignOut</Button>  :  <Button variant="primary">
                 <Link className='text-white text-decoration-none' to='/login'> Login </Link>
                 </Button>}
 
-            </Nav>
+            </Nav> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>

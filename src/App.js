@@ -9,6 +9,7 @@ import NotFount from './components/NotFount/NotFount';
 import Products from './components/Products/Products';
 import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
+import PrivateRoute from './components/Shared/PrivateRoute/PrivateRoute';
 
 
 
@@ -17,22 +18,22 @@ function App() {
     <div className="App">
 
       <Header></Header>
-      
+
       <Routes>
-        <Route path="/" element= {<Home />} />
-        <Route path="home" element= {<Home />} />
-        <Route path="about" element= {<About />} />
-        <Route path="products" element= {<Products />} />
-        <Route path="Contact" element= {<Conatct />} />
-        <Route path="login" element= {<Login />} />
-        <Route path="signup" element= {<Signup />} />
-        <Route path="*" element= {<NotFount />} />
+        <Route path="/" element={<Home />} />
+        <Route path="home" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="products" element={<Products />} />
+        <Route path="Contact" element={<Conatct />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
+        <Route path="*" element={<NotFount />} />
 
 
       </Routes>
 
       <Footer></Footer>
-     
+
     </div>
   );
 }

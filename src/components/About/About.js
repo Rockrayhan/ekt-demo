@@ -13,7 +13,7 @@ const About = () => {
             </h1>
 
 
-            <Container className='mt-5 about-section'>
+            <Container className='mt-3 about-section'>
                 <Row>
                     <Col sm={6}>
 
@@ -22,24 +22,22 @@ const About = () => {
                     <Col className='mt-5' sm={6}>
                         <h2>
                             Ektu khani Tech is Information <br />
-                              and  <br /> Technology related Service Provider
+                            and  <br /> Technology related Service Provider
                         </h2>
                         <br />
                         <h5 className='mb-5'>
                             Our services are included but not limited to :
                             <br />
                             <br />
-                            E-Commerce Website <br />
+                            <li> E-Commerce Website</li> 
+                                <br />
+                            <li> Blog Website </li>
                             <br />
-                            Blog Website <br />
+                          <li>  Portfolio Website</li>
                             <br />
-                            Portfolio Website
-                            <br />
-                            <br />
-                            Digital Marketing 
-                            <br />
-                            <br />
-                            Grapgics Designing
+                         <li>   Digital Marketing</li>
+
+
                         </h5>
                     </Col>
                 </Row>
